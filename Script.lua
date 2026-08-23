@@ -324,7 +324,7 @@ Title.Text = "MISTER X HUB"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
 Title.Font = Enum.Font.GothamBold
 Title.TextSize = 14
-Title.TextXAlignment = 0
+Title.TextXAlignment = Enum.TextXAlignment.Left
 
 local SubTitle = Instance.new("TextLabel", Header)
 SubTitle.Size = UDim2.new(0.6, 0, 0.4, 0)
@@ -334,7 +334,7 @@ SubTitle.Text = "ISLAND ESCAPE ULTIMATE"
 SubTitle.TextColor3 = Color3.fromRGB(175, 225, 255)
 SubTitle.Font = Enum.Font.GothamMedium
 SubTitle.TextSize = 9
-SubTitle.TextXAlignment = 0
+SubTitle.TextXAlignment = Enum.TextXAlignment.Left
 
 local CloseBtn = Instance.new("TextButton", Header)
 CloseBtn.Size = UDim2.new(0, 26, 0, 26)
@@ -405,7 +405,7 @@ local function addTab(tabName, icon)
     btn.TextColor3 = Color3.fromRGB(180, 210, 240)
     btn.Font = Enum.Font.GothamBold
     btn.TextSize = 11
-    btn.TextXAlignment = 0
+    btn.TextXAlignment = Enum.TextXAlignment.Left
     Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
 
     local page = Instance.new("ScrollingFrame", ContentPanel)
@@ -454,7 +454,7 @@ local function addToggle(page, icon, text, defaultState, callback)
     txtL.TextColor3 = state and Color3.fromRGB(0, 255, 180) or Color3.fromRGB(240, 250, 255)
     txtL.TextSize = 11
     txtL.Font = Enum.Font.GothamBold
-    txtL.TextXAlignment = 0
+    txtL.TextXAlignment = Enum.TextXAlignment.Left
 
     local statusL = Instance.new("TextLabel", b)
     statusL.Size = UDim2.new(0, 30, 1, 0)
@@ -507,7 +507,7 @@ local function addButton(page, icon, text, callback)
     txtL.TextColor3 = Color3.fromRGB(240, 250, 255)
     txtL.TextSize = 11
     txtL.Font = Enum.Font.GothamBold
-    txtL.TextXAlignment = 0
+    txtL.TextXAlignment = Enum.TextXAlignment.Left
 
     b.MouseButton1Click:Connect(function() callback(txtL) end)
     return b
@@ -591,7 +591,7 @@ end)
 addButton(PlayerTab, "⚡", "CYCLE SPEED (16 / 32 / 64)", function(lbl)
     if CustomSpeed == 16 then CustomSpeed = 32
     elseif CustomSpeed == 32 then CustomSpeed = 64
-    else CustomSpeed = 16 end
+    else CustomSpeed == 16 end
     lbl.Text = "CYCLE SPEED (" .. CustomSpeed .. ")"
 end)
 addToggle(PlayerTab, "🚶", "NOCLIP (NO COLLISION)", false, function(s) NoclipActive = s end)
