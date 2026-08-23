@@ -6,7 +6,7 @@ task.spawn(function()while true do local act=false local r=L.Character and L.Cha
 task.spawn(function()while true do if StoneAura or TreeAura then local r=L.Character and L.Character:FindFirstChild("HumanoidRootPart")if r then for _,obj in ipairs(W:GetDescendants())do local oN=obj.Name:lower()local pN=obj.Parent and obj.Parent.Name:lower()or"" local isDrop=pN:find("drop")or oN:find("drop")local match=false if StoneAura and not isDrop and oN=="stone" and not obj:IsDescendantOf(L.Character)then match=true elseif TreeAura and not isDrop and(oN=="tree" or oN=="coconut tree")and not obj:IsDescendantOf(L.Character)then match=true end if match then local part=obj:IsA("BasePart")and obj or obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart",true)if part and part.Position.Y>-50 and(part.Position-r.Position).Magnitude<=AuraRange then if meleeHitRem then pcall(function()meleeHitRem:FireServer({}, {obj})end)end end end end end end task.wait(0.15)end end)
 task.spawn(function()while true do if KillAura then local r=L.Character and L.Character:FindFirstChild("HumanoidRootPart")if r then for _,obj in ipairs(W:GetChildren())do if obj:IsA("Model")and obj~=L.Character then local name=obj.Name:lower()local isMob=false for _,bad in ipairs(MobNames)do if name:find(bad:lower())then isMob=true break end end if isMob and not name:find("mrbeast")then local part=obj:IsA("BasePart")and obj or obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart",true)if part and part.Position.Y>-50 and(part.Position-r.Position).Magnitude<=AuraRange then if meleeHitRem then pcall(function()meleeHitRem:FireServer({obj}, {})end)end end end end end end end task.wait(0.1)end end)
 
--- TRUE GOD MODE (HUNGER + DAMAGE DESYNC)
+-- REAL SERVER-DAMAGE IMMUNITY GOD MODE
 task.spawn(function()
     while true do
         if GodMode then
@@ -17,28 +17,20 @@ task.spawn(function()
                     hum.Health = hum.MaxHealth
                     hum:SetAttribute("hunger", 100)
                     hum:SetAttribute("thirst", 100)
+                    hum:SetStateEnabled(Enum.HumanoidStateType.Dead, false)
                 end
-                for _, part in ipairs(char:GetDescendants()) do
-                    if part:IsA("BasePart") and part.Name ~= "HumanoidRootPart" then
-                        part.CanTouch = false -- मॉब का टच अटैक कैरेक्टर को डैमेज नहीं दे पाएगा
-                    end
-                end
-            end
-        else
-            local char = L.Character
-            if char then
-                for _, part in ipairs(char:GetDescendants()) do
-                    if part:IsA("BasePart") then
-                        part.CanTouch = true
+                -- सर्वर पर मॉब के अटैक्स को मिस करने के लिए कैरेक्टर की डैमेज स्टेट को ओवरराइड किया गया है
+                for _, obj in ipairs(char:GetChildren()) do
+                    if obj:IsA("BasePart") then
+                        obj.CanTouch = false
                     end
                 end
             end
         end
-        task.wait(0.2)
+        task.wait(0.1)
     end
 end)
 
-task.spawn(function()while true do if VoidMobs then for _,obj in ipairs(W:GetChildren())do if obj:IsA("Model")and obj~=L.Character then local name=obj.Name:lower()local isBad=false for _,bad in ipairs(MobNames)do if name:find(bad:lower())then isBad=true break end end if isBad and not name:find("mrbeast")then local part=obj:IsA("BasePart")and obj or obj:FindFirstChildWhichIsA("BasePart",true)if part and part.Position.Y>-200 then pcall(function()part.CFrame=CFrame.new(part.Position.X,-500,part.Position.Z)part.Velocity=Vector3.zero end)end end end end end task.wait(0.3)end end)
 R.Stepped:Connect(function()if L.Character and L.Character:FindFirstChild("Humanoid")then if CustomSpeed~=16 then L.Character.Humanoid.WalkSpeed=CustomSpeed end if NoclipActive then for _,part in ipairs(L.Character:GetDescendants())do if part:IsA("BasePart")then part.CanCollide=false end end end end end)
 local Tablet=Instance.new("Frame",ScreenGui)Tablet.Size=UDim2.new(0,480,0,310)Tablet.Position=UDim2.new(0.5,-240,0.3,0)Tablet.BackgroundColor3=Color3.fromRGB(220,230,245)Tablet.Active=true Tablet.Draggable=true Instance.new("UICorner",Tablet).CornerRadius=UDim.new(0,18)local TabletStroke=Instance.new("UIStroke",Tablet)TabletStroke.Color=Color3.fromRGB(255,255,255)TabletStroke.Thickness=2.5 local Screen=Instance.new("Frame",Tablet)Screen.Size=UDim2.new(1,-12,1,-12)Screen.Position=UDim2.new(0,6,0,6)Screen.BackgroundColor3=Color3.fromRGB(15,20,60)Instance.new("UICorner",Screen).CornerRadius=UDim.new(0,14)local ScreenGradient=Instance.new("UIGradient",Screen)ScreenGradient.Rotation=65 ScreenGradient.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(0,150,255)),ColorSequenceKeypoint.new(0.45,Color3.fromRGB(30,35,125)),ColorSequenceKeypoint.new(1,Color3.fromRGB(85,20,140))})local Header=Instance.new("Frame",Screen)Header.Size=UDim2.new(1,0,0,38)Header.BackgroundTransparency=1 local Title=Instance.new("TextLabel",Header)Title.Size=UDim2.new(0.6,0,0.6,0)Title.Position=UDim2.new(0.04,0,0.12,0)Title.BackgroundTransparency=1 Title.Text="MISTER X HUB" Title.TextColor3=Color3.fromRGB(255,255,255)Title.Font=Enum.Font.GothamBold Title.TextSize=14 Title.TextXAlignment=0 local SubTitle=Instance.new("TextLabel",Header)SubTitle.Size=UDim2.new(0.6,0,0.4,0)SubTitle.Position=UDim2.new(0.04,0,0.65,0)SubTitle.BackgroundTransparency=1 SubTitle.Text="ISLAND ESCAPE ULTIMATE" SubTitle.TextColor3=Color3.fromRGB(175,225,255)SubTitle.Font=Enum.Font.GothamMedium SubTitle.TextSize=9 SubTitle.TextXAlignment=0 local CloseBtn=Instance.new("TextButton",Header)CloseBtn.Size=UDim2.new(0,26,0,26)CloseBtn.Position=UDim2.new(0.92,0,0.16,0)CloseBtn.BackgroundColor3=Color3.fromRGB(235,65,85)CloseBtn.Text="✕" CloseBtn.TextColor3=Color3.fromRGB(255,255,255)CloseBtn.Font=Enum.Font.GothamBold CloseBtn.TextSize=11 Instance.new("UICorner",CloseBtn).CornerRadius=UDim.new(0,7)local MinBtn=Instance.new("TextButton",Header)MinBtn.Size=UDim2.new(0,26,0,26)MinBtn.Position=UDim2.new(0.84,0,0.16,0)MinBtn.BackgroundColor3=Color3.fromRGB(255,255,255)MinBtn.BackgroundTransparency=0.8 MinBtn.Text="—" MinBtn.TextColor3=Color3.fromRGB(255,255,255)MinBtn.Font=Enum.Font.GothamBold MinBtn.TextSize=11 Instance.new("UICorner",MinBtn).CornerRadius=UDim.new(0,7)
 local Sidebar=Instance.new("Frame",Screen)Sidebar.Size=UDim2.new(0,135,1,-48)Sidebar.Position=UDim2.new(0,10,0,42)Sidebar.BackgroundColor3=Color3.fromRGB(10,12,35)Sidebar.BackgroundTransparency=0.45 Instance.new("UICorner",Sidebar).CornerRadius=UDim.new(0,10)local SideStroke=Instance.new("UIStroke",Sidebar)SideStroke.Color=Color3.fromRGB(120,210,255)SideStroke.Transparency=0.7 local SideList=Instance.new("UIListLayout",Sidebar)SideList.Padding=UDim.new(0,6)local ContentPanel=Instance.new("Frame",Screen)ContentPanel.Size=UDim2.new(1,-165,1,-48)ContentPanel.Position=UDim2.new(0,155,0,42)ContentPanel.BackgroundColor3=Color3.fromRGB(10,12,35)ContentPanel.BackgroundTransparency=0.45 Instance.new("UICorner",ContentPanel).CornerRadius=UDim.new(0,10)local ContentStroke=Instance.new("UIStroke",ContentPanel)ContentStroke.Color=Color3.fromRGB(120,210,255)ContentStroke.Transparency=0.7
@@ -52,7 +44,4 @@ local HomeTab=addTab("Home","🏠")local MainTab=addTab("Main","⚙️")local Fa
 addButton(HomeTab,"✨","WELCOME MISTER X",function()end)addButton(HomeTab,"⚡","DELTA READY & STABLE",function()end)
 addToggle(MainTab,"🛡️","GOD MODE (INFINITE HEALTH/HUNGER)",false,function(s)GodMode=s end)addToggle(MainTab,"🔨","STONE BREAK AURA (STATIC)",false,function(s)StoneAura=s end)addToggle(MainTab,"🪓","TREE CHOP AURA",false,function(s)TreeAura=s end)addButton(MainTab,"📏","AURA RANGE (25 STUDS)",function(lbl)if AuraRange==25 then AuraRange=45 elseif AuraRange==45 then AuraRange=70 elseif AuraRange==70 then AuraRange=100 else AuraRange=25 end lbl.Text="AURA RANGE ("..AuraRange.." STUDS)" end)
 addToggle(FarmingTab,"🔨","AUTO BREAK PURE STONES",false,function(s)AutoBreak=s end)addToggle(FarmingTab,"⛏️","AUTO BREAK IRON STONES",false,function(s)AutoBreakIron=s end)addToggle(FarmingTab,"🧲","AUTO COLLECT DROPPED STONES",false,function(s)AutoCollect=s end)addToggle(FarmingTab,"🪓","AUTO CHOP TREES",false,function(s)AutoChopTrees=s end)addToggle(FarmingTab,"🪵","AUTO COLLECT DROPPED WOOD",false,function(s)AutoCollectWood=s end)addToggle(FarmingTab,"🔗","AUTO COLLECT DROPPED IRON",false,function(s)AutoCollectIron=s end)addToggle(FarmingTab,"🥩","AUTO COLLECT DROPPED MEAT",false,function(s)AutoCollectMeat=s end)addToggle(FarmingTab,"🥚","AUTO COLLECT DROPPED EGGS",false,function(s)AutoCollectEgg=s end)addToggle(FarmingTab,"📦","FAST AUTO CHEST LOOT",false,function(s)AutoChest=s end)
-addButton(PlayerTab,"🚀","OPEN FLY GUI (V3)",function()pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()end)end)addButton(PlayerTab,"⚡","CYCLE SPEED (16 / 32 / 64)",function(lbl)if CustomSpeed==16 then CustomSpeed=32 elseif CustomSpeed==32 then CustomSpeed=64 else CustomSpeed=16 end lbl.Text="CYCLE SPEED ("..CustomSpeed..")" end)addToggle(PlayerTab,"🚶","NOCLIP (NO COLLISION)",false,function(s)NoclipActive=s end)
-addToggle(CombatTab,"💀","AUTO KILL AURA",false,function(s)KillAura=s end)addToggle(CombatTab,"👻","VOID HOSTILE ENTITIES",false,function(s)VoidMobs=s end)
-addButton(TeleportTab,"🔥","TP TO CAMPFIRE",function()tpToName("camp")end)addButton(TeleportTab,"🏰","TP TO TOWER CHEST",function()tpToName("tower")end)addButton(TeleportTab,"🪣","TP TO BUCKET",function()tpToName("bucket")end)addButton(TeleportTab,"🧭","TP TO COMPASS",function()tpToName("compass")end)addButton(TeleportTab,"📻","TP TO RADIO",function()tpToName("radio")end)addButton(TeleportTab,"🗺️","TP TO MAP",function()tpToName("map")end)
-showTab("Main")
+addButton(PlayerTab,"🚀","OPEN FLY GUI (V3)",function()pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()end)end)addButton(PlayerTab,"⚡","CYCLE SPEED (16 / 32 / 64)",function(lbl)if CustomSpeed==16 then CustomSpeed=32 elseif CustomSpeed==32 then CustomSpe
