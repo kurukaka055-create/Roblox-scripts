@@ -17,10 +17,22 @@ pcall(function()
 end)
 if not ScreenGui.Parent then ScreenGui.Parent=L:WaitForChild("PlayerGui") end
 
-local AutoBreak,AutoBreakIron,AutoCollect,AutoChopTrees,AutoCollectWood,AutoCollectIron,AutoCollectMeat,AutoCollectEgg,AutoChest,VoidMobs,NoclipActive=false,false,false,false,false,false,false,false,false,false,false 
+-- Auto-Active Instant ProximityPrompt Interact
+pcall(function()
+    local function makeInstant(prompt)
+        if prompt:IsA("ProximityPrompt") then
+            prompt.HoldDuration = 0
+        end
+    end
+    for _, obj in ipairs(W:GetDescendants()) do
+        makeInstant(obj)
+    end
+    W.DescendantAdded:Connect(makeInstant)
+end)
+
+local AutoBreak,AutoBreakIron,AutoCollect,AutoChopTrees,AutoCollectWood,AutoCollectIron,AutoCollectMeat,AutoCollectEgg,AutoChest,NoclipActive=false,false,false,false,false,false,false,false,false,false 
 local StoneAura,TreeAura,RapidKillAura=false,false,false 
 local AuraRange=25 local CustomSpeed=16 local OpChests={}
-local MobNames={"bear","snake","spider","shadow","treant","monster","archer","大触手","小触手","站桩章鱼怪","站桩野人弓箭手","章鱼怪","章鱼怪大副","章鱼怪海盗"}
 
 local RemEvents=RS:FindFirstChild("Events",true)or RS
 local attackMobRem=RemEvents:FindFirstChild("attackMobRemote")or RemEvents:FindFirstChild("attackMob")
@@ -162,7 +174,7 @@ task.spawn(function()
     end 
 end)
 
--- Resource Aura Loop (Lag-Free Optimized)
+-- Resource Aura Loop
 task.spawn(function()
     while true do 
         if StoneAura or TreeAura then 
@@ -212,34 +224,6 @@ task.spawn(function()
             end 
         end 
         task.wait(0.06)
-    end 
-end)
-
--- Void Mobs Loop
-task.spawn(function()
-    while true do 
-        if VoidMobs then 
-            local pool=EntitiesFolder and EntitiesFolder:GetChildren()or W:GetChildren()
-            for _,obj in ipairs(pool)do 
-                if obj:IsA("Model")and obj~=L.Character then 
-                    local name=obj.Name:lower()
-                    local isBad=false 
-                    for _,bad in ipairs(MobNames)do 
-                        if name:find(bad:lower())then isBad=true break end 
-                    end 
-                    if isBad and not name:find("mrbeast")then 
-                        local part=obj:IsA("BasePart")and obj or obj:FindFirstChildWhichIsA("BasePart",true)
-                        if part and part.Position.Y>-200 then 
-                            pcall(function()
-                                part.CFrame=CFrame.new(part.Position.X,-500,part.Position.Z)
-                                part.Velocity=Vector3.zero 
-                            end)
-                        end 
-                    end 
-                end 
-            end 
-        end 
-        task.wait(0.35)
     end 
 end)
 
@@ -449,108 +433,4 @@ end
 local function addButton(page,icon,text,callback)
     local b=Instance.new("TextButton",page)
     b.Size=UDim2.new(1,0,0,40)
-    b.BackgroundColor3=Color3.fromRGB(255,255,255)
-    b.BackgroundTransparency=0.88 
-    b.Text="" 
-    Instance.new("UICorner",b).CornerRadius=UDim.new(0,8)
-    local bStroke=Instance.new("UIStroke",b)
-    bStroke.Color=Color3.fromRGB(120,210,255)
-    bStroke.Transparency=0.6 
-    
-    local iconL=Instance.new("TextLabel",b)
-    iconL.Size=UDim2.new(0,30,1,0)
-    iconL.Position=UDim2.new(0,8,0,0)
-    iconL.BackgroundTransparency=1 
-    iconL.Text=icon 
-    iconL.TextColor3=Color3.fromRGB(120,220,255)
-    iconL.TextSize=16 
-    iconL.Font=Enum.Font.GothamBold 
-    
-    local txtL=Instance.new("TextLabel",b)
-    txtL.Size=UDim2.new(1,-45,1,0)
-    txtL.Position=UDim2.new(0,40,0,0)
-    txtL.BackgroundTransparency=1 
-    txtL.Text=text 
-    txtL.TextColor3=Color3.fromRGB(240,250,255)
-    txtL.TextSize=11.5 
-    txtL.Font=Enum.Font.GothamBold 
-    txtL.TextXAlignment=0 
-    
-    b.MouseButton1Click:Connect(function()callback(txtL)end)
-    return b 
-end
-
-local FloatPill=Instance.new("TextButton",ScreenGui)
-FloatPill.Size=UDim2.new(0,54,0,54)
-FloatPill.Position=UDim2.new(0.02,0,0.4,0)
-FloatPill.BackgroundColor3=Color3.fromRGB(15,20,60)
-FloatPill.Text="X" 
-FloatPill.TextColor3=Color3.fromRGB(0,200,255)
-FloatPill.TextSize=26 
-FloatPill.Font=Enum.Font.GothamBlack 
-FloatPill.Visible=false 
-FloatPill.Active=true 
-FloatPill.Draggable=true 
-Instance.new("UICorner",FloatPill).CornerRadius=UDim.new(0,14)
-
-local PillStroke=Instance.new("UIStroke",FloatPill)
-PillStroke.Color=Color3.fromRGB(0,200,255)
-PillStroke.Thickness=2 
-
-MinBtn.MouseButton1Click:Connect(function()Tablet.Visible=false;FloatPill.Visible=true end)
-FloatPill.MouseButton1Click:Connect(function()Tablet.Visible=true;FloatPill.Visible=false end)
-
-CloseBtn.MouseButton1Click:Connect(function()
-    AutoBreak,AutoBreakIron,AutoCollect,AutoChopTrees,AutoCollectWood,AutoCollectIron,AutoCollectMeat,AutoCollectEgg,AutoChest,VoidMobs,NoclipActive,RapidKillAura=false,false,false,false,false,false,false,false,false,false,false,false 
-    StoneAura,TreeAura=false,false 
-    CustomSpeed=16 
-    if L.Character and L.Character:FindFirstChild("Humanoid")then L.Character.Humanoid.WalkSpeed=16 end 
-    ScreenGui:Destroy()
-end)
-
--- Tabs Creation
-local HomeTab=addTab("Home","🏠")
-local MainTab=addTab("Main","⚙️")
-local FarmingTab=addTab("Farming","⛏️")
-local PlayerTab=addTab("Player","🏃")
-local CombatTab=addTab("Combat","⚔️")
-local TeleportTab=addTab("Teleport","🌀")
-
-addButton(HomeTab,"✨","WELCOME MISTER X",function()end)
-addButton(HomeTab,"⚡","UNIVERSAL & STABLE",function()end)
-
-addToggle(MainTab,"🔨","STONE BREAK AURA (STATIC)",false,function(s)StoneAura=s end)
-addToggle(MainTab,"🪓","TREE CHOP AURA",false,function(s)TreeAura=s end)
-addButton(MainTab,"📏","AURA RANGE (25 STUDS)",function(lbl)
-    if AuraRange==25 then AuraRange=45 elseif AuraRange==45 then AuraRange=70 elseif AuraRange==70 then AuraRange=100 else AuraRange=25 end 
-    lbl.Text="AURA RANGE ("..AuraRange.." STUDS)" 
-end)
-
-addToggle(FarmingTab,"🔨","AUTO BREAK PURE STONES",false,function(s)AutoBreak=s end)
-addToggle(FarmingTab,"⛏️","AUTO BREAK IRON STONES",false,function(s)AutoBreakIron=s end)
-addToggle(FarmingTab,"🧲","AUTO COLLECT DROPPED STONES",false,function(s)AutoCollect=s end)
-addToggle(FarmingTab,"🪓","AUTO CHOP TREES",false,function(s)AutoChopTrees=s end)
-addToggle(FarmingTab,"🪵","AUTO COLLECT DROPPED WOOD",false,function(s)AutoCollectWood=s end)
-addToggle(FarmingTab,"🔗","AUTO COLLECT DROPPED IRON",false,function(s)AutoCollectIron=s end)
-addToggle(FarmingTab,"🥩","AUTO COLLECT DROPPED MEAT",false,function(s)AutoCollectMeat=s end)
-addToggle(FarmingTab,"🥚","AUTO COLLECT DROPPED EGGS",false,function(s)AutoCollectEgg=s end)
-addToggle(FarmingTab,"📦","FAST AUTO CHEST LOOT",false,function(s)AutoChest=s end)
-
-addButton(PlayerTab,"🚀","OPEN FLY GUI (V3)",function()pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()end)end)
-addButton(PlayerTab,"⚡","CYCLE SPEED (16 / 32 / 64)",function(lbl)
-    if CustomSpeed==16 then CustomSpeed=32 elseif CustomSpeed==32 then CustomSpeed=64 else CustomSpeed=16 end 
-    lbl.Text="CYCLE SPEED ("..CustomSpeed..")" 
-end)
-addToggle(PlayerTab,"🚶","NOCLIP (NO COLLISION)",false,function(s)NoclipActive=s end)
-
-addToggle(CombatTab,"⚡","RAPID KILL AURA (BURST)",false,function(s)RapidKillAura=s end)
-addToggle(CombatTab,"👻","VOID HOSTILE ENTITIES",false,function(s)VoidMobs=s end)
-
-addButton(TeleportTab,"🔥","TP TO CAMPFIRE",function()tpToName("camp")end)
-addButton(TeleportTab,"🏰","TP TO TOWER CHEST",function()tpToName("tower")end)
-addButton(TeleportTab,"🪣","TP TO BUCKET",function()tpToName("bucket")end)
-addButton(TeleportTab,"🧭","TP TO COMPASS",function()tpToName("compass")end)
-addButton(TeleportTab,"📻","TP TO RADIO",function()tpToName("radio")end)
-addButton(TeleportTab,"🗺️","TP TO MAP",function()tpToName("map")end)
-
-showTab("Main")
+    b.Backgro
