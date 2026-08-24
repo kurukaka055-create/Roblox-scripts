@@ -1,12 +1,240 @@
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+local P,W,R,L=game:GetService("Players"),game:GetService("Workspace"),game:GetService("RunService"),game:GetService("Players").LocalPlayer local RS=game:GetService("ReplicatedStorage")
+pcall(function()if game.CoreGui:FindFirstChild("MisterXHub")then game.CoreGui.MisterXHub:Destroy()end if L.PlayerGui:FindFirstChild("MisterXHub")then L.PlayerGui.MisterXHub:Destroy()end end)
 
-]]--
+local ScreenGui=Instance.new("ScreenGui")ScreenGui.Name="MisterXHub" ScreenGui.ResetOnSpawn=false
+pcall(function()ScreenGui.Parent=(gethui and gethui())or game.CoreGui or L:WaitForChild("PlayerGui")end)
+if not ScreenGui.Parent then ScreenGui.Parent=L:WaitForChild("PlayerGui")end
 
-local v0=string.char;local v1=string.byte;local v2=string.sub;local v3=bit32 or bit ;local v4=v3.bxor;local v5=table.concat;local v6=table.insert;local function v7(v147,v148) local v149={};for v256=1, #v147 do v6(v149,v0(v4(v1(v2(v147,v256,v256 + 1 )),v1(v2(v148,1 + (v256% #v148) ,1 + (v256% #v148) + 1 )))%256 ));end return v5(v149);end local v8,v9,v10,v11=game:GetService(v7("\225\207\218\60\227\169\212","\126\177\163\187\69\134\219\167")),game:GetService(v7("\20\194\56\206\239\51\204\41\192","\156\67\173\74\165")),game:GetService(v7("\6\162\71\37\185\52\80\61\180\76","\38\84\215\41\118\220\70")),game:GetService(v7("\96\26\35\11\251\66\5","\158\48\118\66\114")).LocalPlayer;local v12=game:GetService(v7("\153\33\0\58\122\166\250\191\33\20\5\103\170\233\170\35\21","\155\203\68\112\86\19\197"));pcall(function() local v150=515 -(223 + 292) ;local v151;local v152;local v153;while true do if (v150==(1566 -(1429 + 137))) then v151=1449 -(1253 + 196) ;v152=nil;v150=258 -(126 + 131) ;end if (v150==(834 -(171 + 662))) then v153=nil;while true do if (v151==1) then while true do if (v152==(93 -(4 + 89))) then v153=0;while true do if (v153==((0 -0) + 0 + 0)) then if game.CoreGui:FindFirstChild(v7("\107\212\37\232\69\106\221\208\83\223","\152\38\189\86\156\32\24\133")) then game.CoreGui.MisterXHub:Destroy();end if v11.PlayerGui:FindFirstChild(v7("\209\94\180\82\249\69\159\110\233\85","\38\156\55\199")) then v11.PlayerGui.MisterXHub:Destroy();end break;end end break;end end break;end if (v151==(0 -0)) then local v295=0 + 0 ;while true do if (v295==(1487 -(35 + 1451))) then v151=1454 -(28 + 1425) ;break;end if (v295==0) then v152=736 -((2216 -(941 + 1052)) + 492 + 21) ;v153=nil;v295=1515 -(822 + 692) ;end end end end break;end end end);local v13=Instance.new(v7("\155\126\110\45\22\122\221\86\161","\35\200\29\28\72\115\20\154"));v13.Name=v7("\52\182\194\203\136\62\12\49\170\211","\84\121\223\177\191\237\76");v13.ResetOnSpawn=false;pcall(function() v13.Parent=(gethui and gethui()) or game.CoreGui or v11:WaitForChild(v7("\139\90\200\185\63\66\23\212\178","\161\219\54\169\192\90\48\80")) ;end);if  not v13.Parent then v13.Parent=v11:WaitForChild(v7("\121\78\1\60\76\80\39\48\64","\69\41\34\96"));end pcall(function() local v155=0 -0 ;local v156;local v157;while true do if (v155==1) then while true do if (v156==(1 -(0 + 0))) then for v317,v318 in ipairs(v9:GetDescendants()) do v157(v318);end v9.DescendantAdded:Connect(v157);break;end if (v156==((297 -(45 + 252)) -0)) then local v296=0 + 0 ;local v297;while true do if ((0 + 0)==v296) then v297=0 -0 ;while true do if (v297==(433 -(114 + 319))) then v157=nil;function v157(v384) if v384:IsA(v7("\140\209\216\18\11\38\181\215\206\58\16\36\177\211\195","\75\220\163\183\106\98")) then v384.HoldDuration=(0 -0) + (0 -0) ;end end v297=1;end if (v297==(1 + 0)) then v156=(2438 -801) -((2876 -1503) + 263) ;break;end end break;end end end end break;end if (0==v155) then v156=0;v157=nil;v155=1964 -(556 + 1407) ;end end end);local v16,v17,v18,v19,v20,v21,v22,v23,v24,v25=false,false,false,false,false,false,false,false,false,false;local v26,v27,v28=false,false,false;local v29=(2231 -(741 + 465)) -((916 -(170 + 295)) + 290 + 259) ;local v30=6 + 10 + 0 ;local v31={};local function v32(v158) return (v12:FindFirstChild(v7("\39\172\142\57\205\17","\185\98\218\235\87"),true) and v12.Events:FindFirstChild(v158)) or v12:FindFirstChild(v158,true) ;end local v33=v32(v7("\202\40\51\231\221\161\230\51\37\212\219\167\196\40\34","\202\171\92\71\134\190")) or v32(v7("\40\213\56\137\42\202\1\135\43","\232\73\161\76")) ;local v34=v32(v7("\182\220\78\88\27\147\208\86\111\27\182\214\86\88","\126\219\185\34\61")) or v32(v7("\1\203\82\119\123\95\250\243","\135\108\174\62\18\30\23\147")) ;local v35=v32(v7("\163\250\47\255\23\161\63\245\179\228\37\223\29","\167\214\137\74\171\120\206\83"));local function v36(v159,v160) pcall(function() local v258=0 -0 ;local v259;local v260;local v261;while true do if (v258==0) then v259=0 + 0 ;v260=nil;v258=1;end if (v258==(1 + 0)) then v261=nil;while true do if (v259==1) then while true do if (v260==((0 + 0) -(1230 -(957 + 273)))) then v261=v11.Character and v11.Character:FindFirstChild(v7("\163\229\63\92\246\168\130\244\0\82\247\179\187\241\32\73","\199\235\144\82\61\152")) ;if v261 then local v360=0;local v361;while true do if (v360==0) then v361=(371 + 1013) -(746 + 638) ;while true do if (v361==(0 + 0 + 0)) then v261.Velocity=Vector3.zero;v261.CFrame=v159 + (v160 or Vector3.new((0 -0) -(0 -0) ,342.5 -((665 -447) + (609 -486)) ,(3361 -(389 + 1391)) -(964 + 571 + 5 + 41) )) ;break;end end break;end end end break;end end break;end if (0==v259) then local v319=0 -0 ;local v320;while true do if (v319==(951 -(783 + 168))) then v320=0 -0 ;while true do if (v320==(1 + 0)) then v259=312 -(309 + 2) ;break;end if (v320==(0 -0)) then v260=(1212 -(1090 + 122)) -(0 + 0) ;v261=nil;v320=3 -2 ;end end break;end end end end break;end end end);end local function v37(v161) for v262,v263 in ipairs(v9:GetDescendants()) do if (v263.Name:lower():find(v161:lower()) and  not v263:IsDescendantOf(v11.Character)) then local v280=0;local v281;while true do if (v280==(0 + 0)) then v281=(v263:IsA(v7("\37\23\170\46\55\23\171\63","\75\103\118\217")) and v263) or v263.PrimaryPart or v263:FindFirstChildWhichIsA(v7("\229\85\99\17\137\31\213\64","\126\167\52\16\116\217"),true) ;if (v281 and (v281.Position.Y> -(1168 -(628 + 490)))) then local v339=0 + 0 ;local v340;while true do if (v339==(0 -0)) then v340=(0 -0) + (774 -(431 + 343)) ;while true do if (v340==((0 -0) + (0 -0))) then local v404=0 + 0 ;while true do if ((0 + 0)==v404) then v36(v281.CFrame,Vector3.new(560 -((2001 -(556 + 1139)) + (269 -(6 + 9))) ,1 + 0 + 1 + 0 ,169 -(28 + 141) ));return;end end end end break;end end end break;end end end end end local function v38(v162) local v163=v11.Character and v11.Character:FindFirstChild(v7("\224\59\45\129\186\22\245\204\28\47\143\160\41\253\218\58","\156\168\78\64\224\212\121")) ;if  not v163 then return nil,nil,nil;end local v164,v165,v166,v167=nil,nil,nil,math.huge;local v168=v9:FindFirstChild(v7("\32\239\168\203","\174\103\142\197"));local v169=(v162:find(v7("\82\58\80\40","\152\54\72\63\88\69\62")) and v168 and v168:FindFirstChild(v7("\240\214\225\76\196\193\234\117\192\193\227\79","\60\180\164\142")) and v168.DroppedItems:GetChildren()) or ((v162==v7("\91\86\0\58\51","\114\56\62\101\73\71\141")) and v168 and v168:FindFirstChild(v7("\155\225\222\215\172","\164\216\137\187")) and v168.Chest:GetChildren()) or (v162:find(v7("\193\233\61\187\162","\107\178\134\81\210\198\158")) and v168 and v168:FindFirstChild(v7("\11\26\131\210\163\59","\202\88\110\226\166")) and v168.Static:GetChildren()) or v9:GetChildren() ;for v264,v265 in ipairs(v169) do if (v265:IsA(v7("\238\0\134\242\198","\170\163\111\226\151")) or (v162:find(v7("\21\34\189\40","\73\113\80\210\88\46\87")) and v265:IsA(v7("\163\45\222\23\215\128\62\217","\135\225\76\173\114")))) then local v282,v283=(v265.Parent and v265.Parent.Name:lower()) or "" ,v265.Name:lower();local v284=v282:find(v7("\30\255\183\160","\199\122\141\216\208\204\221")) or v283:find(v7("\169\207\31\224","\150\205\189\112\144\24")) ;local v285=false;if ((v162==v7("\54\144\176\66\1\183\2\31\41\141\187","\112\69\228\223\44\100\232\113")) and  not v284 and (v283==v7("\199\11\8\221\179","\230\180\127\103\179\214\28")) and  not v265:IsDescendantOf(v11.Character)) then v285=true;elseif ((v162==v7("\133\23\80\72\219\82\239\128\12\91","\128\236\101\63\38\132\33")) and  not v284 and (v283:find(v7("\165\187\30\74","\175\204\201\113\36\214\139")) or v283:find(v7("\78\222\58\210\68\72\222\48","\100\39\172\85\188")) or v283:find(v7("\164\106\182\142\115\190\108\182\142\54","\83\205\24\217\224"))) and  not v265:IsDescendantOf(v11.Character)) then v285=true;elseif ((v162==v7("\242\215\200\56\217\214\194\49\239\193","\93\134\165\173")) and  not v284 and ((v283==v7("\170\224\196\199","\30\222\146\161\162\90\174\210")) or (v283==v7("\230\65\115\5\235\91\100\74\241\92\117\15","\106\133\46\16"))) and  not v265:IsDescendantOf(v11.Character)) then v285=true;elseif ((v162==v7("\75\52\124\242\95\127\92\50\124\236","\32\56\64\19\156\58")) and v284 and v283:find(v7("\73\220\234\88\95","\224\58\168\133\54\58\146")) and  not v265:IsDescendantOf(v11.Character)) then v285=true;elseif ((v162==v7("\78\89\68\249\74\130\149\4\73","\107\57\54\43\157\21\230\231")) and v284 and (v283:find(v7("\204\132\30\241","\175\187\235\113\149\217\188")) or v283:find(v7("\48\160\134","\24\92\207\225\44\131\25")) or v283:find(v7("\73\193\185\66\24\117","\29\43\179\216\44\123")) or v283:find(v7("\174\205\41\79\182","\44\221\185\64"))) and  not v265:IsDescendantOf(v11.Character)) then v285=true;elseif ((v162==v7("\8\245\71\81\76\5\245\71\79","\19\97\135\40\63")) and v284 and v283:find(v7("\167\78\60\53","\81\206\60\83\91\79")) and  not v265:IsDescendantOf(v11.Character)) then v285=true;elseif ((v162==v7("\67\174\209\102\16\199\95\171\94","\196\46\203\176\18\79\163\45")) and v284 and (v283:find(v7("\181\39\127\10","\143\216\66\30\126\68\155")) or v283:find(v7("\172\199\2\207","\129\202\168\109\171\165\195\183")) or v283:find(v7("\49\76\50\217\213","\134\66\56\87\184\190\116"))) and  not v265:IsDescendantOf(v11.Character)) then v285=true;elseif ((v162==v7("\57\54\14\132\29\249\46\37","\85\92\81\105\219\121\139\65")) and v284 and v283:find(v7("\248\180\87","\191\157\211\48\37\28")) and  not v265:IsDescendantOf(v11.Character)) then v285=true;elseif ((v162==v7("\220\23\241\15\46","\90\191\127\148\124")) and  not v284 and (v283:find(v7("\123\143\43\4\108","\119\24\231\78")) or v283:find(v7("\129\63\164\94\217","\113\226\77\197\42\188\32")) or v283:find(v7("\56\25\236","\213\90\118\148"))) and  not (v283:find(v7("\79\33\163\83\95","\45\59\78\212\54")) or v282:find(v7("\4\89\148\142\148","\144\112\54\227\235\230\78\205"))) and  not v31[v265] and  not v265:IsDescendantOf(v11.Character)) then v285=true;end if v285 then local v292=0;local v293;local v294;while true do if ((1 + 0)==v292) then while true do if (v293==(0 -0)) then v294=(v265:IsA(v7("\145\41\28\249\224\90\161\60","\59\211\72\111\156\176")) and v265) or v265.PrimaryPart or v265:FindFirstChildWhichIsA(v7("\108\134\240\40\126\134\241\57","\77\46\231\131"),true) ;if (v294 and (v294.Position.Y> -((70 + 28) -48))) then local v385=0;local v386;while true do if (v385==0) then v386=(v294.Position-v163.Position).Magnitude;if ((v386<v167) and ((v162:find(v7("\169\91\186\73\190","\32\218\52\214")) and (v386>((2785.5 -(486 + 831)) -(899 + (1477 -909))))) or v162:find(v7("\74\5\62\184","\58\46\119\81\200\145\208\37")) or (v162==v7("\40\132\53\191\189","\86\75\236\80\204\201\221")))) then local v438=0 -0 ;local v439;while true do if (v438==(0 + 0)) then v439=0;while true do if (v439==(0 -0)) then local v477=1263 -(668 + 595) ;while true do if (v477==(0 + 0)) then v167=v386;v164=v265;v477=1;end if (v477==1) then v439=1 + 0 + (0 -0) ;break;end end end if (v439==((292 -(23 + 267)) -(1945 -(1129 + 815)))) then v165=v294;v166=v265:FindFirstChildWhichIsA(v7("\66\83\120\157\247\134\123\85\110\181\236\132\127\81\99","\235\18\33\23\229\158"),true) or v294:FindFirstChildWhichIsA(v7("\96\168\206\163\89\183\200\175\73\138\211\180\93\170\213","\219\48\218\161"),true) ;break;end end break;end end end break;end end end break;end end break;end if (v292==0) then v293=387 -(371 + 16) ;v294=nil;v292=1751 -(1326 + 424) ;end end end end end return v164,v165,v166;end task.spawn(function() while true do local v266=0 -0 ;local v267;local v268;while true do if (v266==0) then v267=false;v268=v11.Character and v11.Character:FindFirstChild(v7("\204\100\113\72\213\64\233\224\67\115\70\207\127\225\246\101","\128\132\17\28\41\187\47")) ;v266=3 -2 ;end if (v266==(119 -(88 + 30))) then if v268 then local v298=(1374 -(720 + 51)) -((595 -327) + (2111 -(421 + 1355))) ;local v299;local v300;while true do if ((1 -0)==v298) then local v343=0;while true do if (v343==((143 + 148) -(60 + (1313 -(286 + 797))))) then v298=(2098 -1524) -((704 -278) + (585 -(397 + 42))) ;break;end if (v343==(0 + 0)) then v300=nil;function v300(v387) local v388=800 -(24 + 776) ;local v389;local v390;local v391;local v392;while true do if (v388==1) then local v428=0 -0 ;while true do if ((785 -(222 + 563))==v428) then v391=nil;v392=nil;v428=1;end if (v428==(1 -0)) then v388=2;break;end end end if (v388==(0 + 0)) then v389=190 -(23 + 167) ;v390=nil;v388=1799 -(690 + 1108) ;end if (v388==(1 + 1)) then while true do if (v389==(0 + 0 + (848 -(40 + 808)))) then v390,v391,v392=v38(v387);if (v390 and v391 and v391.Parent) then local v464=1456 -(282 + 194 + 980) ;local v465;while true do if (v464==1) then v465=tick();while (((v387==v7("\18\38\9\52\88\62\54\20\53\77","\61\97\82\102\90")) and v18) or ((v387==v7("\187\33\164\79\248\83\12\6\188","\105\204\78\203\43\167\55\126")) and v20) or ((v387==v7("\172\184\44\16\44\0\213\94\181","\49\197\202\67\126\115\100\167")) and v21) or ((v387==v7("\58\94\222\61\191\82\76\56\75","\62\87\59\191\73\224\54")) and v22) or ((v387==v7("\226\5\253\246\227\16\245\217","\169\135\98\154")) and v23)) and v390.Parent and v391.Parent and ((tick() -v465)<(7 -5))  do local v481=0 + 0 ;local v482;local v483;while true do if (v481==0) then v482=0;v483=nil;v481=1 + 0 ;end if (v481==(1 + 0)) then while true do if (v482==(813 -((1140 -(47 + 524)) + 242))) then task.wait(0.08 -(0 + 0) );break;end if (((0 -0) + 0)==v482) then local v497=0 -0 ;while true do if (v497==(2 -1)) then v482=1025 -((2432 -(1165 + 561)) + 10 + 308) ;break;end if (v497==0) then if v392 then pcall(function() fireproximityprompt(v392);end);end v483=v390:FindFirstChildWhichIsA(v7("\232\123\45\87\246\23\205\223\114\39\64\242\33","\168\171\23\68\52\157\83"),true);v497=1;end end end if (v482==(3 -2)) then local v498=0 + 0 ;while true do if (v498==0) then if v483 then pcall(function() fireclickdetector(v483);end);end pcall(function() local v506=479 -(341 + 138) ;local v507;local v508;while true do if (v506==(0 + 0)) then local v513=0 -0 ;while true do if (v513==(326 -(89 + 237))) then v507=1251 -((2319 -1598) + (1115 -585)) ;v508=nil;v513=882 -(581 + 300) ;end if (v513==1) then v506=1221 -(855 + 365) ;break;end end end if (v506==(2 -1)) then while true do if (v507==(0 + 0)) then v508=1235 -(1030 + 205) ;while true do if (0==v508) then firetouchinterest(v268,v391,1271 -(888 + 57 + 304 + 22) );firetouchinterest(v268,v391,(288 -(156 + 130)) -(2 -1) );break;end end break;end end break;end end end);v498=1;end if (v498==(1 -0)) then v482=(3 -1) + 0 + 0 ;break;end end end end break;end end end break;end if (v464==((409 + 291) -((340 -(10 + 59)) + 429))) then local v478=0 + 0 ;while true do if (v478==(4 -3)) then v464=(2250 -(671 + 492)) -(367 + 94 + (1840 -(369 + 846))) ;break;end if (v478==(0 + 0)) then v267=true;v36(v391.CFrame,Vector3.new(0 + 0 + (1945 -(1036 + 909)) ,0.5,(1193 + 307) -((2363 -955) + (295 -(11 + 192))) ));v478=1;end end end end end break;end end break;end end end v343=1 + 0 ;end end end if (v298==2) then if v16 then v299(v7("\231\101\250\163\32\18\148\251\125\252\169","\231\148\17\149\205\69\77"),187 -(135 + 40) );elseif v17 then v299(v7("\137\181\200\245\104\236\143\171\206\255","\159\224\199\167\155\55"),28 -16 );elseif v19 then v299(v7("\227\225\57\215\200\224\51\222\254\247","\178\151\147\92"),1303 -(599 + 394 + 295) ,Vector3.new((0 -0) + (0 -0) ,1.5,(1347 -(50 + 126)) -(418 + 753) ));elseif v18 then v300(v7("\159\233\67\60\23\115\126\158\242\92","\26\236\157\44\82\114\44"));elseif v20 then v300(v7("\61\33\218\95\21\42\199\84\58","\59\74\78\181"));elseif v21 then v300(v7("\44\195\85\84\140\33\195\85\74","\211\69\177\58\58"));elseif v22 then v300(v7("\186\224\120\225\214\207\165\234\105","\171\215\133\25\149\137"));elseif v23 then v300(v7("\228\207\53\197\235\34\243\82","\34\129\168\82\154\143\80\156"));elseif v24 then local v487,v488,v489=v38(v7("\134\186\54\24\92","\233\229\210\83\107\40\46"));if (v487 and v488 and v488.Parent) then local v493=0;local v494;local v495;while true do if (v493==(0 -0)) then local v501=0;while true do if (v501==(1 + 0)) then task.wait(0.08 + 0 );v493=1;break;end if (v501==(1413 -(1233 + 180))) then v267=true;v36(v488.CFrame,Vector3.new((969 -(522 + 447)) + (1421 -(107 + 1314)) ,1.2 + 0 ,(0 -0) + 0 + 0 ));v501=1;end end end if (v493==((1 -0) + (7 -5))) then while v24 and ((tick() -v495)<(1912 -(716 + 1194)))  do local v505=0;while true do if (v505==(0 + 0)) then for v511,v512 in ipairs(v9:GetDescendants()) do if ((v512:IsA(v7("\245\77\61\218","\101\161\34\82\182")) or v512:IsA(v7("\197\2\93\251\215","\78\136\109\57\158\187\130\226")) or v512:IsA(v7("\28\62\234\244\14\62\235\229","\145\94\95\153"))) and  not v512:IsDescendantOf(v11.Character)) then local v514=0 + 0 ;local v515;local v516;while true do if (v514==1) then while true do if (v515==((1032 -(74 + 429)) -(406 + (236 -113)))) then v516=(v512:IsA(v7("\223\204\7\208\126\182\239\217","\215\157\173\116\181\46")) and v512) or v512:FindFirstChildWhichIsA(v7("\23\181\152\247\234\52\166\159","\186\85\212\235\146"),true) ;if (v516 and ((v516.Position-v488.Position).Magnitude<((890 + 904) -((4003 -2254) + 15 + 5)))) then local v518=0 -0 ;local v519;local v520;local v521;local v522;while true do if (v518==(2 -1)) then v521=nil;v522=nil;v518=2;end if (v518==(433 -(279 + 154))) then v519=(778 -(454 + 324)) + 0 + 0 ;v520=nil;v518=18 -(12 + 5) ;end if (v518==(2 + 0)) then while true do if (v519==(1323 -(1249 + (185 -112)))) then v522=nil;while true do if (v520==(1 + 0 + (1094 -(277 + 816)))) then pcall(function() local v525=0;local v526;while true do if (v525==(0 -0)) then v526=1183 -(1058 + 125) ;while true do if (v526==((215 + 930) -(466 + (1654 -(815 + 160))))) then firetouchinterest(v268,v516,(0 -0) -0 );firetouchinterest(v268,v516,2 -1 );break;end end break;end end end);if v512:IsA(v7("\246\142\25\242","\56\162\225\118\158\89\142")) then pcall(function() v11.Character.Humanoid:EquipTool(v512);end);end break;end if (v520==(0 -0)) then v521=v512:FindFirstChildWhichIsA(v7("\127\9\201\172\41\252\89\17\197\172\54\215\78","\184\60\101\160\207\66"),true) or v516:FindFirstChildWhichIsA(v7("\18\142\117\191\58\166\121\168\52\129\104\179\35","\220\81\226\28"),true) ;if v521 then pcall(function() fireclickdetector(v521);end);end v520=1 + 0 ;end if (v520==(2 -1)) then local v523=1898 -(41 + 1857) ;local v524;while true do if (v523==(1893 -(1222 + 671))) then v524=(4910 -3010) -(106 + (2578 -784)) ;while true do if (v524==(1 + (1182 -(229 + 953)))) then v520=(1775 -(1111 + 663)) + 1 ;break;end if (v524==(1579 -(874 + 705))) then local v527=0 + 0 ;local v528;while true do if (0==v527) then v528=0;while true do if (v528==(0 + 0)) then v522=v512:FindFirstChildWhichIsA(v7("\35\199\141\227\227\202\26\193\155\203\248\200\30\197\150","\167\115\181\226\155\138"),true) or v516:FindFirstChildWhichIsA(v7("\210\48\232\68\114\124\207\246\59\215\78\116\124\214\246","\166\130\66\135\60\27\17"),true) ;if v522 then pcall(function() fireproximityprompt(v522);end);end v528=1 -0 ;end if (v528==(1 + 0)) then v524=1;break;end end break;end end end end break;end end end end break;end if (0==v519) then v520=679 -(642 + 37) ;v521=nil;v519=1 + 0 ;end end break;end end end break;end end break;end if ((0 + 0)==v514) then local v517=0;while true do if (v517==(0 -0)) then v515=0;v516=nil;v517=1;end if (v517==1) then v514
+pcall(function()
+    local function fix(p)if p:IsA("ProximityPrompt")then p.HoldDuration=0 end end
+    for _,v in ipairs(W:GetDescendants())do fix(v)end
+    W.DescendantAdded:Connect(fix)
+end)
+
+local AutoBreak,AutoBreakIron,AutoCollect,AutoChopTrees,AutoCollectWood,AutoCollectIron,AutoCollectMeat,AutoCollectEgg,AutoChest,NoclipActive=false,false,false,false,false,false,false,false,false,false
+local StoneAura,TreeAura,RapidKillAura=false,false,false
+local AuraRange=25 local CustomSpeed=16 local OpChests={}
+
+local function getRem(name)return RS:FindFirstChild("Events",true)and RS.Events:FindFirstChild(name)or RS:FindFirstChild(name,true)end
+local attackMobRem=getRem("attackMobRemote")or getRem("attackMob")
+local meleeHitRem=getRem("meleeHitRemote")or getRem("meleeHit")
+local useToolRem=getRem("useToolRemote")
+
+local function tp(cf,off)pcall(function()local r=L.Character and L.Character:FindFirstChild("HumanoidRootPart")if r then r.Velocity=Vector3.zero r.CFrame=cf+(off or Vector3.new(0,1.5,0))end end)end
+local function tpToName(nameSub)for _,obj in ipairs(W:GetDescendants())do if obj.Name:lower():find(nameSub:lower())and not obj:IsDescendantOf(L.Character)then local p=obj:IsA("BasePart")and obj or obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart",true)if p and p.Position.Y>-50 then tp(p.CFrame,Vector3.new(0,2,0))return end end end end
+
+local function getTarget(mode)
+    local root=L.Character and L.Character:FindFirstChild("HumanoidRootPart")if not root then return nil,nil,nil end
+    local nO,nP,tP,mD=nil,nil,nil,math.huge
+    local GF=W:FindFirstChild("Game")
+    local pool=(mode:find("drop")and GF and GF:FindFirstChild("DroppedItems")and GF.DroppedItems:GetChildren())or(mode=="chest" and GF and GF:FindFirstChild("Chest")and GF.Chest:GetChildren())or(mode:find("solid")and GF and GF:FindFirstChild("Static")and GF.Static:GetChildren())or W:GetChildren()
+    for _,obj in ipairs(pool)do
+        if obj:IsA("Model")or(mode:find("drop")and obj:IsA("BasePart"))then
+            local pN,oN=obj.Parent and obj.Parent.Name:lower()or"",obj.Name:lower()
+            local isDrop=pN:find("drop")or oN:find("drop")local m=false
+            if mode=="stone_solid" and not isDrop and oN=="stone" and not obj:IsDescendantOf(L.Character)then m=true
+            elseif mode=="iron_solid" and not isDrop and(oN:find("iron")or oN:find("iron ore")or oN:find("iron stone"))and not obj:IsDescendantOf(L.Character)then m=true
+            elseif mode=="tree_solid" and not isDrop and(oN=="tree" or oN=="coconut tree")and not obj:IsDescendantOf(L.Character)then m=true
+            elseif mode=="stone_drop" and isDrop and oN:find("stone")and not obj:IsDescendantOf(L.Character)then m=true
+            elseif mode=="wood_drop" and isDrop and(oN:find("wood")or oN:find("log")or oN:find("branch")or oN:find("stick"))and not obj:IsDescendantOf(L.Character)then m=true
+            elseif mode=="iron_drop" and isDrop and oN:find("iron")and not obj:IsDescendantOf(L.Character)then m=true
+            elseif mode=="meat_drop" and isDrop and(oN:find("meat")or oN:find("food")or oN:find("steak"))and not obj:IsDescendantOf(L.Character)then m=true
+            elseif mode=="egg_drop" and isDrop and oN:find("egg")and not obj:IsDescendantOf(L.Character)then m=true
+            elseif mode=="chest" and not isDrop and(oN:find("chest")or oN:find("crate")or oN:find("box"))and not(oN:find("tower")or pN:find("tower"))and not OpChests[obj]and not obj:IsDescendantOf(L.Character)then m=true end
+            if m then
+                local part=obj:IsA("BasePart")and obj or obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart",true)
+                if part and part.Position.Y>-50 then
+                    local dist=(part.Position-root.Position).Magnitude
+                    if dist<mD and(mode:find("solid")and dist>1.5 or mode:find("drop")or mode=="chest")then
+                        mD=dist nO=obj nP=part tP=obj:FindFirstChildWhichIsA("ProximityPrompt",true)or part:FindFirstChildWhichIsA("ProximityPrompt",true)
+                    end
+                end
+            end
+        end
+    end
+    return nO,nP,tP
+end
+
+task.spawn(function()
+    while true do
+        local act=false local r=L.Character and L.Character:FindFirstChild("HumanoidRootPart")
+        if r then
+            local function doMine(m,tLim,off)
+                local o,p,pr=getTarget(m)
+                if o and p and p.Parent then
+                    act=true tp(p.CFrame,off)local t=tick()
+                    while(m=="stone_solid" and AutoBreak or m=="iron_solid" and AutoBreakIron or m=="tree_solid" and AutoChopTrees)and o.Parent and p.Parent and(tick()-t<tLim)do
+                        if meleeHitRem then pcall(function()meleeHitRem:FireServer({},{o})end)end
+                        local tool=L.Character:FindFirstChildOfClass("Tool")if tool then pcall(function()tool:Activate()end)end
+                        if pr then pcall(function()fireproximityprompt(pr)end)end
+                        task.wait(0.12)
+                    end
+                end
+            end
+            local function doLoot(m)
+                local o,p,pr=getTarget(m)
+                if o and p and p.Parent then
+                    act=true tp(p.CFrame,Vector3.new(0,0.5,0))local t=tick()
+                    while(m=="stone_drop" and AutoCollect or m=="wood_drop" and AutoCollectWood or m=="iron_drop" and AutoCollectIron or m=="meat_drop" and AutoCollectMeat or m=="egg_drop" and AutoCollectEgg)and o.Parent and p.Parent and(tick()-t<2)do
+                        if pr then pcall(function()fireproximityprompt(pr)end)end
+                        local cl=o:FindFirstChildWhichIsA("ClickDetector",true)if cl then pcall(function()fireclickdetector(cl)end)end
+                        pcall(function()firetouchinterest(r,p,0);firetouchinterest(r,p,1)end)task.wait(0.08)
+                    end
+                end
+            end
+            if AutoBreak then doMine("stone_solid",12)
+            elseif AutoBreakIron then doMine("iron_solid",12)
+            elseif AutoChopTrees then doMine("tree_solid",15,Vector3.new(0,1.5,0))
+            elseif AutoCollect then doLoot("stone_drop")
+            elseif AutoCollectWood then doLoot("wood_drop")
+            elseif AutoCollectIron then doLoot("iron_drop")
+            elseif AutoCollectMeat then doLoot("meat_drop")
+            elseif AutoCollectEgg then doLoot("egg_drop")
+            elseif AutoChest then
+                local o,p,pr=getTarget("chest")
+                if o and p and p.Parent then
+                    act=true tp(p.CFrame,Vector3.new(0,1.2,0))task.wait(0.08)
+                    if pr then pcall(function()fireproximityprompt(pr)end)end
+                    local cl=o:FindFirstChildWhichIsA("ClickDetector",true)if cl then pcall(function()fireclickdetector(cl)end)end
+                    pcall(function()firetouchinterest(r,p,0);firetouchinterest(r,p,1)end)task.wait(1.2)
+                    local st=tick()
+                    while AutoChest and(tick()-st<2.0)do
+                        for _,item in ipairs(W:GetDescendants())do
+                            if(item:IsA("Tool")or item:IsA("Model")or item:IsA("BasePart"))and not item:IsDescendantOf(L.Character)then
+                                local ip=item:IsA("BasePart")and item or item:FindFirstChildWhichIsA("BasePart",true)
+                                if ip and(ip.Position-p.Position).Magnitude<25 then
+                                    local icl=item:FindFirstChildWhichIsA("ClickDetector",true)or ip:FindFirstChildWhichIsA("ClickDetector",true)if icl then pcall(function()fireclickdetector(icl)end)end
+                                    local ipr=item:FindFirstChildWhichIsA("ProximityPrompt",true)or ip:FindFirstChildWhichIsA("ProximityPrompt",true)if ipr then pcall(function()fireproximityprompt(ipr)end)end
+                                    pcall(function()firetouchinterest(r,ip,0);firetouchinterest(r,ip,1)end)
+                                    if item:IsA("Tool")then pcall(function()L.Character.Humanoid:EquipTool(item)end)end
+                                end
+                            end
+                        end
+                        task.wait(0.12)
+                    end
+                    OpChests[o]=true task.wait(0.08)
+                else tpToName("camp")AutoChest=false end
+            end
+        end
+        task.wait(act and 0.06 or 0.35)
+    end
+end)
+
+task.spawn(function()
+    while true do
+        if StoneAura or TreeAura then
+            local r=L.Character and L.Character:FindFirstChild("HumanoidRootPart")
+            local GF=W:FindFirstChild("Game")
+            local pool=(GF and GF:FindFirstChild("Static")and GF.Static:GetChildren())or W:GetChildren()
+            if r then
+                for _,obj in ipairs(pool)do
+                    local oN=obj.Name:lower()local match=false
+                    if StoneAura and oN=="stone" then match=true
+                    elseif TreeAura and(oN=="tree" or oN=="coconut tree" or oN:find("tree"))then match=true end
+                    if match then
+                        local part=obj:IsA("BasePart")and obj or obj.PrimaryPart or obj:FindFirstChildWhichIsA("BasePart",true)
+                        if part and part.Position.Y>-50 and(part.Position-r.Position).Magnitude<=AuraRange then
+                            if meleeHitRem then pcall(function()meleeHitRem:FireServer({},{obj})end)end
+                        end
+                    end
+                end
+            end
+        end
+        task.wait(0.12)
+    end
+end)
+
+task.spawn(function()
+    while true do
+        if RapidKillAura then
+            local r=L.Character and L.Character:FindFirstChild("HumanoidRootPart")
+            local GF=W:FindFirstChild("Game")
+            local folder=GF and GF:FindFirstChild("Entities")or W:FindFirstChild("Entities")
+            if r and folder then
+                for _,mob in ipairs(folder:GetChildren())do
+                    local hrp=mob:FindFirstChild("HumanoidRootPart")or mob:FindFirstChildWhichIsA("BasePart")
+                    if hrp and(r.Position-hrp.Position).Magnitude<=AuraRange then
+                        for i=1,3 do
+                            pcall(function()
+                                if useToolRem then useToolRem:FireServer()end
+                                if attackMobRem then attackMobRem:FireServer(mob)end
+                                if meleeHitRem then meleeHitRem:FireServer(mob,hrp.Position)end
+                            end)
+                        end
+                    end
+                end
+            end
+        end
+        task.wait(0.06)
+    end
+end)
+
+R.Stepped:Connect(function()
+    if L.Character and L.Character:FindFirstChild("Humanoid")then
+        if CustomSpeed~=16 then L.Character.Humanoid.WalkSpeed=CustomSpeed end
+        if NoclipActive then for _,p in ipairs(L.Character:GetDescendants())do if p:IsA("BasePart")then p.CanCollide=false end end end
+    end
+end)
+
+local Tablet=Instance.new("Frame",ScreenGui)Tablet.Size=UDim2.new(0,540,0,350)Tablet.Position=UDim2.new(0.5,-270,0.25,0)Tablet.BackgroundColor3=Color3.fromRGB(220,230,245)Tablet.Active=true Tablet.Draggable=true Instance.new("UICorner",Tablet).CornerRadius=UDim.new(0,18)
+local TabletStroke=Instance.new("UIStroke",Tablet)TabletStroke.Color=Color3.fromRGB(255,255,255)TabletStroke.Thickness=2.5
+local Screen=Instance.new("Frame",Tablet)Screen.Size=UDim2.new(1,-12,1,-12)Screen.Position=UDim2.new(0,6,0,6)Screen.BackgroundColor3=Color3.fromRGB(15,20,60)Instance.new("UICorner",Screen).CornerRadius=UDim.new(0,14)
+local ScreenGradient=Instance.new("UIGradient",Screen)ScreenGradient.Rotation=65 ScreenGradient.Color=ColorSequence.new({ColorSequenceKeypoint.new(0,Color3.fromRGB(0,150,255)),ColorSequenceKeypoint.new(0.45,Color3.fromRGB(30,35,125)),ColorSequenceKeypoint.new(1,Color3.fromRGB(85,20,140))})
+local Header=Instance.new("Frame",Screen)Header.Size=UDim2.new(1,0,0,42)Header.BackgroundTransparency=1
+local Title=Instance.new("TextLabel",Header)Title.Size=UDim2.new(0.6,0,0.55,0)Title.Position=UDim2.new(0.04,0,0.12,0)Title.BackgroundTransparency=1 Title.Text="MISTER X HUB" Title.TextColor3=Color3.fromRGB(255,255,255)Title.Font=Enum.Font.GothamBold Title.TextSize=15 Title.TextXAlignment=0
+local SubTitle=Instance.new("TextLabel",Header)SubTitle.Size=UDim2.new(0.6,0,0.4,0)SubTitle.Position=UDim2.new(0.04,0,0.65,0)SubTitle.BackgroundTransparency=1 SubTitle.Text="ISLAND ESCAPE ULTIMATE" SubTitle.TextColor3=Color3.fromRGB(175,225,255)SubTitle.Font=Enum.Font.GothamMedium SubTitle.TextSize=10 SubTitle.TextXAlignment=0
+local CloseBtn=Instance.new("TextButton",Header)CloseBtn.Size=UDim2.new(0,28,0,28)CloseBtn.Position=UDim2.new(0.93,0,0.16,0)CloseBtn.BackgroundColor3=Color3.fromRGB(235,65,85)CloseBtn.Text="✕" CloseBtn.TextColor3=Color3.fromRGB(255,255,255)CloseBtn.Font=Enum.Font.GothamBold CloseBtn.TextSize=12 Instance.new("UICorner",CloseBtn).CornerRadius=UDim.new(0,7)
+local MinBtn=Instance.new("TextButton",Header)MinBtn.Size=UDim2.new(0,28,0,28)MinBtn.Position=UDim2.new(0.86,0,0.16,0)MinBtn.BackgroundColor3=Color3.fromRGB(255,255,255)MinBtn.BackgroundTransparency=0.8 MinBtn.Text="—" MinBtn.TextColor3=Color3.fromRGB(255,255,255)MinBtn.Font=Enum.Font.GothamBold MinBtn.TextSize=12 Instance.new("UICorner",MinBtn).CornerRadius=UDim.new(0,7)
+
+local Sidebar=Instance.new("Frame",Screen)Sidebar.Size=UDim2.new(0,145,1,-52)Sidebar.Position=UDim2.new(0,10,0,46)Sidebar.BackgroundColor3=Color3.fromRGB(10,12,35)Sidebar.BackgroundTransparency=0.45 Instance.new("UICorner",Sidebar).CornerRadius=UDim.new(0,10)
+local SideStroke=Instance.new("UIStroke",Sidebar)SideStroke.Color=Color3.fromRGB(120,210,255)SideStroke.Transparency=0.7 local SideList=Instance.new("UIListLayout",Sidebar)SideList.Padding=UDim.new(0,6)
+local ContentPanel=Instance.new("Frame",Screen)ContentPanel.Size=UDim2.new(1,-175,1,-52)ContentPanel.Position=UDim2.new(0,165,0,46)ContentPanel.BackgroundColor3=Color3.fromRGB(10,12,35)ContentPanel.BackgroundTransparency=0.45 Instance.new("UICorner",ContentPanel).CornerRadius=UDim.new(0,10)
+local ContentStroke=Instance.new("UIStroke",ContentPanel)ContentStroke.Color=Color3.fromRGB(120,210,255)ContentStroke.Transparency=0.7
+
+local Pages,TabButtons={},{}
+local function showTab(tN)for n,p in pairs(Pages)do p.Visible=(n==tN)end for n,b in pairs(TabButtons)do local a=(n==tN)b.BackgroundTransparency=a and 0.2 or 0.85 b.TextColor3=a and Color3.fromRGB(255,255,255)or Color3.fromRGB(180,210,240)end end
+local function addTab(tN,ic)
+    local b=Instance.new("TextButton",Sidebar)b.Size=UDim2.new(1,-8,0,36)b.Position=UDim2.new(0,4,0,0)b.BackgroundColor3=Color3.fromRGB(0,160,255)b.BackgroundTransparency=0.85 b.Text="  "..ic.."  "..tN b.TextColor3=Color3.fromRGB(180,210,240)b.Font=Enum.Font.GothamBold b.TextSize=11.5 b.TextXAlignment=0 Instance.new("UICorner",b).CornerRadius=UDim.new(0,8)
+    local p=Instance.new("ScrollingFrame",ContentPanel)p.Size=UDim2.new(1,-12,1,-12)p.Position=UDim2.new(0,6,0,6)p.BackgroundTransparency=1 p.ScrollBarThickness=3 p.Visible=false local l=Instance.new("UIListLayout",p)l.Padding=UDim.new(0,8)
+    Pages[tN]=p TabButtons[tN]=b b.MouseButton1Click:Connect(function()showTab(tN)end)return p
+end
+
+local function addToggle(p,ic,txt,def,cb)
+    local s=def local b=Instance.new("TextButton",p)b.Size=UDim2.new(1,0,0,40)b.BackgroundColor3=Color3.fromRGB(255,255,255)b.BackgroundTransparency=s and 0.75 or 0.88 b.Text="" Instance.new("UICorner",b).CornerRadius=UDim.new(0,8)
+    local bs=Instance.new("UIStroke",b)bs.Color=s and Color3.fromRGB(0,255,180)or Color3.fromRGB(120,210,255)bs.Transparency=0.5
+    local il=Instance.new("TextLabel",b)il.Size=UDim2.new(0,30,1,0)il.Position=UDim2.new(0,8,0,0)il.BackgroundTransparency=1 il.Text=ic il.TextColor3=s and Color3.fromRGB(0,255,180)or Color3.fromRGB(120,220,255)il.TextSize=16 il.Font=Enum.Font.GothamBold
+    local tl=Instance.new("TextLabel",b)tl.Size=UDim2.new(1,-75,1,0)tl.Position=UDim2.new(0,40,0,0)tl.BackgroundTransparency=1 tl.Text=txt tl.TextColor3=s and Color3.fromRGB(0,255,180)or Color3.fromRGB(240,250,255)tl.TextSize=11.5 tl.Font=Enum.Font.GothamBold tl.TextXAlignment=0
+    local stl=Instance.new("TextLabel",b)stl.Size=UDim2.new(0,32,1,0)stl.Position=UDim2.new(1,-40,0,0)stl.BackgroundTransparency=1 stl.Text=s and"ON" or"OFF" stl.TextColor3=s and Color3.fromRGB(0,255,180)or Color3.fromRGB(160,170,190)stl.TextSize=10.5 stl.Font=Enum.Font.GothamBold
+    b.MouseButton1Click:Connect(function()
+        s=not s b.BackgroundTransparency=s and 0.75 or 0.88 bs.Color=s and Color3.fromRGB(0,255,180)or Color3.fromRGB(120,210,255)il.TextColor3=s and Color3.fromRGB(0,255,180)or Color3.fromRGB(120,220,255)tl.TextColor3=s and Color3.fromRGB(0,255,180)or Color3.fromRGB(240,250,255)stl.Text=s and"ON" or"OFF" stl.TextColor3=s and Color3.fromRGB(0,255,180)or Color3.fromRGB(160,170,190)cb(s)
+    end)return b
+end
+
+local function addButton(p,ic,txt,cb)
+    local b=Instance.new("TextButton",p)b.Size=UDim2.new(1,0,0,40)b.BackgroundColor3=Color3.fromRGB(255,255,255)b.BackgroundTransparency=0.88 b.Text="" Instance.new("UICorner",b).CornerRadius=UDim.new(0,8)
+    local bs=Instance.new("UIStroke",b)bs.Color=Color3.fromRGB(120,210,255)bs.Transparency=0.6
+    local il=Instance.new("TextLabel",b)il.Size=UDim2.new(0,30,1,0)il.Position=UDim2.new(0,8,0,0)il.BackgroundTransparency=1 il.Text=ic il.TextColor3=Color3.fromRGB(120,220,255)il.TextSize=16 il.Font=Enum.Font.GothamBold
+    local tl=Instance.new("TextLabel",b)tl.Size=UDim2.new(1,-45,1,0)tl.Position=UDim2.new(0,40,0,0)tl.BackgroundTransparency=1 tl.Text=txt tl.TextColor3=Color3.fromRGB(240,250,255)tl.TextSize=11.5 tl.Font=Enum.Font.GothamBold tl.TextXAlignment=0
+    b.MouseButton1Click:Connect(function()cb(tl)end)return b
+end
+
+local FloatPill=Instance.new("TextButton",ScreenGui)FloatPill.Size=UDim2.new(0,54,0,54)FloatPill.Position=UDim2.new(0.02,0,0.4,0)FloatPill.BackgroundColor3=Color3.fromRGB(15,20,60)FloatPill.Text="X" FloatPill.TextColor3=Color3.fromRGB(0,200,255)FloatPill.TextSize=26 FloatPill.Font=Enum.Font.GothamBlack FloatPill.Visible=false FloatPill.Active=true FloatPill.Draggable=true Instance.new("UICorner",FloatPill).CornerRadius=UDim.new(0,14)
+local PillStroke=Instance.new("UIStroke",FloatPill)PillStroke.Color=Color3.fromRGB(0,200,255)PillStroke.Thickness=2
+MinBtn.MouseButton1Click:Connect(function()Tablet.Visible=false;FloatPill.Visible=true end)
+FloatPill.MouseButton1Click:Connect(function()Tablet.Visible=true;FloatPill.Visible=false end)
+
+CloseBtn.MouseButton1Click:Connect(function()
+    AutoBreak,AutoBreakIron,AutoCollect,AutoChopTrees,AutoCollectWood,AutoCollectIron,AutoCollectMeat,AutoCollectEgg,AutoChest,NoclipActive,RapidKillAura=false,false,false,false,false,false,false,false,false,false,false
+    StoneAura,TreeAura=false,false CustomSpeed=16
+    if L.Character and L.Character:FindFirstChild("Humanoid")then L.Character.Humanoid.WalkSpeed=16 end
+    ScreenGui:Destroy()
+end)
+
+local HomeTab=addTab("Home","🏠")local MainTab=addTab("Main","⚙️")local FarmingTab=addTab("Farming","⛏️")local PlayerTab=addTab("Player","🏃")local CombatTab=addTab("Combat","⚔️")local TeleportTab=addTab("Teleport","🌀")
+addButton(HomeTab,"✨","WELCOME MISTER X",function()end)addButton(HomeTab,"⚡","UNIVERSAL & STABLE",function()end)
+addToggle(MainTab,"🔨","STONE BREAK AURA (STATIC)",false,function(s)StoneAura=s end)addToggle(MainTab,"🪓","TREE CHOP AURA",false,function(s)TreeAura=s end)addButton(MainTab,"📏","AURA RANGE (25 STUDS)",function(lbl)if AuraRange==25 then AuraRange=45 elseif AuraRange==45 then AuraRange=70 elseif AuraRange==70 then AuraRange=100 else AuraRange=25 end lbl.Text="AURA RANGE ("..AuraRange.." STUDS)" end)
+addToggle(FarmingTab,"🔨","AUTO BREAK PURE STONES",false,function(s)AutoBreak=s end)addToggle(FarmingTab,"⛏️","AUTO BREAK IRON STONES",false,function(s)AutoBreakIron=s end)addToggle(FarmingTab,"🧲","AUTO COLLECT DROPPED STONES",false,function(s)AutoCollect=s end)addToggle(FarmingTab,"🪓","AUTO CHOP TREES",false,function(s)AutoChopTrees=s end)addToggle(FarmingTab,"🪵","AUTO COLLECT DROPPED WOOD",false,function(s)AutoCollectWood=s end)addToggle(FarmingTab,"🔗","AUTO COLLECT DROPPED IRON",false,function(s)AutoCollectIron=s end)addToggle(FarmingTab,"🥩","AUTO COLLECT DROPPED MEAT",false,function(s)AutoCollectMeat=s end)addToggle(FarmingTab,"🥚","AUTO COLLECT DROPPED EGGS",false,function(s)AutoCollectEgg=s end)addToggle(FarmingTab,"📦","FAST AUTO CHEST LOOT",false,function(s)AutoChest=s end)
+addButton(PlayerTab,"🚀","OPEN FLY GUI (V3)",function()pcall(function()loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()end)end)addButton(PlayerTab,"⚡","CYCLE SPEED (16 / 32 / 64)",function(lbl)if CustomSpeed==16 then CustomSpeed=32 elseif CustomSpeed==32 then CustomSpeed=64 else CustomSpeed=16 end lbl.Text="CYCLE SPEED ("..CustomSpeed..")" end)addToggle(PlayerTab,"🚶","NOCLIP (NO COLLISION)",false,function(s)NoclipActive=s end)
+addToggle(CombatTab,"⚡","RAPID KILL AURA (BURST)",false,function(s)RapidKillAura=s end)
+addButton(TeleportTab,"🔥","TP TO CAMPFIRE",function()tpToName("camp")end)addButton(TeleportTab,"🏰","TP TO TOWER CHEST",function()tpToName("tower")end)addButton(TeleportTab,"🪣","TP TO BUCKET",function()tpToName("bucket")end)addButton(TeleportTab,"🧭","TP TO COMPASS",function()tpToName("compass")end)addButton(TeleportTab,"📻","TP TO RADIO",function()tpToName("radio")end)addButton(TeleportTab,"🗺️","TP TO MAP",function()tpToName("map")end)
+showTab("Main")
